@@ -21,8 +21,8 @@ function AuthCard({
   return (
     <Surface className="p-6 sm:p-8">
       <div className="space-y-2">
-        <h2 className="text-2xl font-semibold text-white">{title}</h2>
-        <p className="text-sm leading-6 text-slate-400">{subtitle}</p>
+        <h2 className="text-2xl font-semibold theme-text">{title}</h2>
+        <p className="text-sm leading-6 theme-muted">{subtitle}</p>
       </div>
       <div className="mt-6">{children}</div>
     </Surface>
@@ -47,19 +47,19 @@ export function LoginPage() {
         <label className="block space-y-2">
           <span className="app-label">E-mail</span>
           <div className="relative">
-            <Mail className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <Mail className="absolute left-4 top-3.5 theme-subtle" size={18} />
             <input className="app-input pl-11" type="email" placeholder="voce@exemplo.com" {...register('email', { required: true })} />
           </div>
         </label>
         <label className="block space-y-2">
           <span className="app-label">Senha</span>
           <div className="relative">
-            <Lock className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <Lock className="absolute left-4 top-3.5 theme-subtle" size={18} />
             <input className="app-input pl-11" type="password" placeholder="••••••••" {...register('password', { required: true })} />
           </div>
         </label>
-        <label className="flex items-center gap-2 text-sm text-slate-300">
-          <input type="checkbox" className="rounded border-white/20 bg-transparent" {...register('remember')} />
+        <label className="flex items-center gap-2 text-sm theme-muted">
+          <input type="checkbox" className="rounded border-slate-300 bg-transparent text-brand-500" {...register('remember')} />
           Manter login salvo
         </label>
         <button className="app-button-primary w-full" type="submit">
@@ -67,11 +67,11 @@ export function LoginPage() {
           <ArrowRight size={18} />
         </button>
       </form>
-      <div className="mt-4 flex items-center justify-between text-sm text-slate-400">
-        <Link to="/forgot-password" className="hover:text-white">
+      <div className="mt-4 flex items-center justify-between text-sm theme-muted">
+        <Link to="/forgot-password" className="hover:text-brand-500">
           Esqueci minha senha
         </Link>
-        <Link to="/register" className="hover:text-white">
+        <Link to="/register" className="hover:text-brand-500">
           Criar conta
         </Link>
       </div>
@@ -96,21 +96,21 @@ export function RegisterPage() {
         <label className="block space-y-2">
           <span className="app-label">Nome</span>
           <div className="relative">
-            <UserRound className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <UserRound className="absolute left-4 top-3.5 theme-subtle" size={18} />
             <input className="app-input pl-11" type="text" {...register('name', { required: true })} />
           </div>
         </label>
         <label className="block space-y-2">
           <span className="app-label">E-mail</span>
           <div className="relative">
-            <Mail className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <Mail className="absolute left-4 top-3.5 theme-subtle" size={18} />
             <input className="app-input pl-11" type="email" {...register('email', { required: true })} />
           </div>
         </label>
         <label className="block space-y-2">
           <span className="app-label">Senha</span>
           <div className="relative">
-            <Lock className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <Lock className="absolute left-4 top-3.5 theme-subtle" size={18} />
             <input className="app-input pl-11" type="password" {...register('password', { required: true })} />
           </div>
         </label>
@@ -118,9 +118,9 @@ export function RegisterPage() {
           Criar conta
         </button>
       </form>
-      <div className="mt-4 text-sm text-slate-400">
+      <div className="mt-4 text-sm theme-muted">
         Já possui conta?{' '}
-        <Link to="/login" className="text-white hover:underline">
+        <Link to="/login" className="hover:text-brand-500 hover:underline">
           Entrar
         </Link>
       </div>
@@ -136,7 +136,7 @@ export function ForgotPasswordPage() {
         <label className="block space-y-2">
           <span className="app-label">E-mail</span>
           <div className="relative">
-            <Mail className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <Mail className="absolute left-4 top-3.5 theme-subtle" size={18} />
             <input className="app-input pl-11" type="email" {...register('email', { required: true })} />
           </div>
         </label>
@@ -144,9 +144,9 @@ export function ForgotPasswordPage() {
           Enviar link
         </button>
       </form>
-      <div className="mt-4 text-sm text-slate-400">
+      <div className="mt-4 text-sm theme-muted">
         Lembrou sua senha?{' '}
-        <Link to="/login" className="text-white hover:underline">
+        <Link to="/login" className="hover:text-brand-500 hover:underline">
           Voltar ao login
         </Link>
       </div>

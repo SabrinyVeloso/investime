@@ -23,8 +23,8 @@ export function SectionHeading({
   return (
     <div className="space-y-2">
       {eyebrow ? <p className="text-xs uppercase tracking-[0.35em] text-brand-500">{eyebrow}</p> : null}
-      <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">{title}</h2>
-      {description ? <p className="max-w-3xl text-sm leading-6 text-slate-600 dark:text-slate-400">{description}</p> : null}
+      <h2 className="text-2xl font-semibold theme-text">{title}</h2>
+      {description ? <p className="max-w-3xl text-sm leading-6 theme-muted">{description}</p> : null}
     </div>
   );
 }
@@ -50,8 +50,8 @@ export function StatCard({
     <motion.div whileHover={{ y: -4 }} transition={{ type: 'spring', stiffness: 280, damping: 24 }} className="surface p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs uppercase tracking-[0.28em] text-slate-500 dark:text-slate-500">{title}</p>
-          <strong className="mt-3 block text-2xl font-semibold text-slate-900 dark:text-white">{value}</strong>
+          <p className="text-xs uppercase tracking-[0.28em] theme-subtle">{title}</p>
+          <strong className="mt-3 block text-2xl font-semibold theme-text">{value}</strong>
         </div>
         <div className={`rounded-2xl bg-gradient-to-br p-3 ${accentStyles[accent]}`}>
           <Icon size={18} />
@@ -75,12 +75,12 @@ export function EmptyState({
       <div className="mb-4 rounded-2xl bg-brand-500/15 p-4 text-brand-500">
         <Icon size={24} />
       </div>
-      <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h3>
-      <p className="mt-2 max-w-sm text-sm text-slate-600 dark:text-slate-400">{description}</p>
+      <h3 className="text-lg font-semibold theme-text">{title}</h3>
+      <p className="mt-2 max-w-sm text-sm theme-muted">{description}</p>
     </div>
   );
 }
 
 export function Badge({ children }: { children: ReactNode }) {
-  return <span className="rounded-full border border-slate-300 bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">{children}</span>;
+  return <span className="theme-chip">{children}</span>;
 }

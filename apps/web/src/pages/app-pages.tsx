@@ -154,21 +154,21 @@ function InvestmentForm({
           <textarea className="app-input min-h-24 resize-none" {...register('notes')} placeholder="Opcional" />
         </label>
 
-        <div className="md:col-span-2 grid gap-3 rounded-3xl border border-white/10 bg-white/5 p-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="theme-soft-surface md:col-span-2 grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Investido</p>
-            <p className="mt-2 font-semibold text-white">{formatCurrency(preview.investedValue)}</p>
+            <p className="text-xs uppercase tracking-[0.25em] theme-subtle">Investido</p>
+            <p className="mt-2 font-semibold theme-text">{formatCurrency(preview.investedValue)}</p>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Atual</p>
-            <p className="mt-2 font-semibold text-white">{formatCurrency(preview.currentValue)}</p>
+            <p className="text-xs uppercase tracking-[0.25em] theme-subtle">Atual</p>
+            <p className="mt-2 font-semibold theme-text">{formatCurrency(preview.currentValue)}</p>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Lucro</p>
+            <p className="text-xs uppercase tracking-[0.25em] theme-subtle">Lucro</p>
             <p className={`mt-2 font-semibold ${preview.profit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>{formatCurrency(preview.profit)}</p>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Rentabilidade</p>
+            <p className="text-xs uppercase tracking-[0.25em] theme-subtle">Rentabilidade</p>
             <p className={`mt-2 font-semibold ${preview.returnPercent >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>{formatPercent(preview.returnPercent)}</p>
           </div>
         </div>
@@ -218,40 +218,40 @@ function InvestmentList({
             <Surface key={item.id} className="p-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h3 className="text-base font-semibold text-white">{item.name}</h3>
+                  <h3 className="text-base font-semibold theme-text">{item.name}</h3>
                   <div className="mt-2 flex flex-wrap gap-2">
                     <Badge>{item.category}</Badge>
                     <Badge>{item.quantity} un</Badge>
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <button type="button" onClick={() => onEdit(item)} className="rounded-2xl border border-white/10 bg-white/5 p-2 text-slate-200">
+                  <button type="button" onClick={() => onEdit(item)} className="theme-button-secondary p-2">
                     <Pencil size={16} />
                   </button>
-                  <button type="button" onClick={() => onDelete(item.id)} className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-2 text-rose-300">
+                  <button type="button" onClick={() => onDelete(item.id)} className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-2 text-rose-500 dark:text-rose-300">
                     <Trash2 size={16} />
                   </button>
                 </div>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Investido</p>
-                  <p className="mt-1 text-white">{formatCurrency(item.investedValue)}</p>
+                  <p className="text-xs uppercase tracking-[0.25em] theme-subtle">Investido</p>
+                  <p className="mt-1 theme-text">{formatCurrency(item.investedValue)}</p>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Atual</p>
-                  <p className="mt-1 text-white">{formatCurrency(item.currentValue)}</p>
+                  <p className="text-xs uppercase tracking-[0.25em] theme-subtle">Atual</p>
+                  <p className="mt-1 theme-text">{formatCurrency(item.currentValue)}</p>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Lucro</p>
+                  <p className="text-xs uppercase tracking-[0.25em] theme-subtle">Lucro</p>
                   <p className={`mt-1 ${item.profit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>{formatCurrency(item.profit)}</p>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Rent.</p>
+                  <p className="text-xs uppercase tracking-[0.25em] theme-subtle">Rent.</p>
                   <p className={`mt-1 ${item.returnPercent >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>{formatPercent(item.returnPercent)}</p>
                 </div>
               </div>
-              <p className="mt-4 text-sm text-slate-400">Compra em {formatDate(item.purchaseDate)}{item.notes ? ` · ${item.notes}` : ''}</p>
+              <p className="mt-4 text-sm theme-muted">Compra em {formatDate(item.purchaseDate)}{item.notes ? ` · ${item.notes}` : ''}</p>
             </Surface>
           ))}
         </div>
@@ -338,7 +338,7 @@ export function InvestmentsTrackerPage() {
             description="Pesquise pelo nome e acompanhe seus resultados de forma simples e rápida."
           />
           <div className="relative sm:w-80">
-            <Search className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <Search className="absolute left-4 top-3.5 theme-subtle" size={18} />
             <input
               className="app-input pl-11"
               placeholder="Pesquisar investimento"
@@ -350,7 +350,7 @@ export function InvestmentsTrackerPage() {
 
         <div className="mt-5">
           {loading ? (
-            <p className="text-sm text-slate-400">Carregando investimentos...</p>
+            <p className="text-sm theme-muted">Carregando investimentos...</p>
           ) : (
             <InvestmentList items={filteredInvestments} onEdit={handleEdit} onDelete={handleDelete} />
           )}
